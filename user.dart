@@ -12,20 +12,20 @@ class User {
   set password(String password) => _password = password;
   String get password => _password;
 
-  // void Entering() {
-  //   print("Choose [New User - Old User]");
-  //   usertype = stdin.readLineSync();
-  //   TypesOfUsers();
-  //   c1.choseCategory();
-  // }
+  void Entering() {
+    print("Choose [New User - Old User]");
+    usertype = stdin.readLineSync();
+    TypesOfUsers();
+    c1.choseCategory();
+  }
 
-  // void TypesOfUsers() {
-  //   if (usertype == "New User") {
-  //     NewUser();
-  //   } else {
-  //     OldUser(name: username, pass: _password);
-  //   }
-  // }
+  void TypesOfUsers() {
+    if (usertype == "New User") {
+      NewUser();
+    } else {
+      OldUser(name: username, pass: password);
+    }
+  }
 
   void NewUser() {
     print("Enter UserName");
@@ -38,8 +38,8 @@ class User {
   }
 
   void OldUser({required String name, required String pass}) {
-    this._password = pass;
     this.username = name;
+    this._password = pass;
     print("Hallo $name , Nice to meet you again!");
   }
 }

@@ -16,9 +16,13 @@ class Product extends Category {
   Order? toOrder;
 
   String? CategoryType() {
-    product1?.phoneProduct();
-    product2?.tabletProduct();
-    product3?.accesoriesProduct();
+    if (choosenCategoty == "Phones") {
+      product1?.phoneProduct();
+    } else if (choosenCategoty == "Tablets") {
+      product2?.tabletProduct();
+    } else if (choosenCategoty == "Accesories") {
+      product3?.accesoriesProduct();
+    }
     print("Go to complete your order");
     toOrder!.CompleteOrder();
   }

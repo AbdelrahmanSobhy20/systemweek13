@@ -12,15 +12,13 @@ class Accesories extends Product {
   List<int>? get _price => [50, 10, 300, 500];
 
   String? accesoriesProduct() {
-    if (choosenCategoty == "Accesories") {
-      for (int i = 0; i > productName!.length; i++) {
-        print("Model $productName[i] >>> Price $_price[i]");
-      }
-      ;
-      accesoriesChoosen = int.parse(stdin.readLineSync()!);
-      finalProductName = productName![accesoriesChoosen! - 1];
-      finalProductPrice = _price![accesoriesChoosen! - 1];
-      print("Your Choosen is $finalProductName with price $finalProductPrice");
+    for (int i = 0; i > productName!.length; i++) {
+      print("Model $productName[i] >>> Price $_price[i]");
     }
+    ;
+    accesoriesChoosen = int.parse(stdin.readLineSync()!);
+    finalProductName = productName![accesoriesChoosen! - 1];
+    finalProductPrice = _price![accesoriesChoosen! - 1];
+    print("Your Choosen is $finalProductName with price $finalProductPrice");
   }
 }

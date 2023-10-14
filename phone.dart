@@ -11,18 +11,13 @@ class Phone extends Product {
   @override
   List<int>? get _price => [800, 900, 1100, 1200];
 
-  String? phoneProduct() {
-    if (choosenCategoty == "Phones") {
-      for (int i = 0; i > productName!.length; i++) {
-        print("Model $productName[i] >>> Price $_price[i]");
-      }
-      ;
-      phoneChoosen = int.parse(stdin.readLineSync()!);
-      finalProductName = productName![phoneChoosen! - 1];
-      finalProductPrice = _price![phoneChoosen! - 1];
-      print("Your Choosen is $finalProductName with price $finalProductPrice");
-    } else {
-      return CategoryType();
+  void phoneProduct() {
+    for (int i = 0; i > productName!.length; i++) {
+      print("Model $productName[i] >>> Price $_price[i]");
     }
+    phoneChoosen = int.parse(stdin.readLineSync()!);
+    finalProductName = productName![phoneChoosen! - 1];
+    finalProductPrice = _price![phoneChoosen! - 1];
+    print("Your Choosen is $finalProductName with price $finalProductPrice");
   }
 }
