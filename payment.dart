@@ -16,7 +16,8 @@ class Payment extends InformationOfOrder {
 
   void TypeOfPayment() {
     if (paymentWay == "Cash") {
-      print("The price is ${p1!.finalProductPrice} , Press Ok to confirm");
+      print(
+          "Your product and price is ${p1!.finalProductDetails} , Press Ok to confirm");
       String? confirmCashWay = stdin.readLineSync();
     } else {
       VisaWay();
@@ -24,7 +25,7 @@ class Payment extends InformationOfOrder {
   }
 
   void VisaWay() {
-    print("The price is ${p1!.finalProductPrice}");
+    print("Your product and price is ${p1!.finalProductDetails}");
     print("Enter your Visa Id");
     visaId = int.parse(stdin.readLineSync()!);
     print("Enter your Visa Password");

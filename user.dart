@@ -1,13 +1,13 @@
 import 'dart:io';
 
 import 'category.dart';
+import 'product.dart';
 
 class User {
   late String username;
   late String _password;
   int? phonenumber;
   String? usertype;
-  Category c1 = Category();
 
   set password(String password) => _password = password;
   String get password => _password;
@@ -16,7 +16,6 @@ class User {
     print("Choose [New User - Old User]");
     usertype = stdin.readLineSync();
     TypesOfUsers();
-    c1.choseCategory();
   }
 
   void TypesOfUsers() {

@@ -1,29 +1,62 @@
 import 'dart:io';
-import 'accesories.dart';
-import 'category.dart';
 import 'order.dart';
-import 'phone.dart';
-import 'tablets.dart';
 
-class Product extends Category {
-  List<String>? productName;
-  String? finalProductName;
-  List<int>? price;
-  int? finalProductPrice;
-  Phone? product1;
-  Tablets? product2;
-  Accesories? product3;
-  Order? toOrder;
+class Product {
+  String? finalProductDetails;
+  // Order? toOrder;
+  List<String> typeOfCategories = ["Phones", "Tablets", "Accesories"];
+  String? choosenCategoty;
 
-  String? CategoryType() {
+  void CategoryType() {
+    print("choose Category : $typeOfCategories");
+    choosenCategoty = stdin.readLineSync();
     if (choosenCategoty == "Phones") {
-      product1?.phoneProduct();
+      PhoneSelected();
     } else if (choosenCategoty == "Tablets") {
-      product2?.tabletProduct();
+      TabletSelected();
     } else if (choosenCategoty == "Accesories") {
-      product3?.accesoriesProduct();
+      AccesoriesSelected();
     }
     print("Go to complete your order");
-    toOrder!.CompleteOrder();
+    // toOrder!.CompleteOrder();
+  }
+
+  void PhoneSelected() {
+    Map<String, int> phonesDetails = {
+      "Iphone12": 800,
+      "Iphone13": 900,
+      "Iphone14": 1100,
+      "Iphone15": 1200
+    };
+    print(phonesDetails);
+    int phoneChoosen = int.parse(stdin.readLineSync()!);
+    finalProductDetails = phonesDetails[phoneChoosen] as String?;
+    print("Your Choosen Phone is ${phonesDetails[phoneChoosen]}");
+  }
+
+  void TabletSelected() {
+    Map<String, int> tabletsDetails = {
+      "iPad mini": 500,
+      "iPad Pro": 800,
+      "iPad Ait": 1000,
+      "iPad Air2": 1150
+    };
+    print(tabletsDetails);
+    int tabletChoosen = int.parse(stdin.readLineSync()!);
+    finalProductDetails = tabletsDetails[tabletChoosen] as String?;
+    print("Your Choosen Tablet is $tabletChoosen");
+  }
+
+  void AccesoriesSelected() {
+    Map<String, int> accesoriesDetails = {
+      "Charger": 50,
+      "Cover": 10,
+      "AirBuds": 300,
+      "Smart Watch": 500
+    };
+    print(accesoriesDetails);
+    int accesoriesChoosen = int.parse(stdin.readLineSync()!);
+    finalProductDetails = accesoriesDetails[(accesoriesChoosen - 1)] as String?;
+    print("Your Choosen Accesory is ${accesoriesDetails[accesoriesChoosen]}");
   }
 }

@@ -2,22 +2,17 @@ import 'dart:io';
 import 'product.dart';
 
 class Phone extends Product {
-  int? phoneChoosen;
-
-  @override
-  List<String>? get productName =>
-      ["Iphone 12", "Iphone 13", "Iphone 14", "Iphone 15"];
-
-  @override
-  List<int>? get _price => [800, 900, 1100, 1200];
-
-  void phoneProduct() {
-    for (int i = 0; i > productName!.length; i++) {
-      print("Model $productName[i] >>> Price $_price[i]");
-    }
+  String? PhoneSelected() {
+    int? phoneChoosen;
+    Map<String, int> phonesDetails = {
+      "Iphone12": 800,
+      "Iphone13": 900,
+      "Iphone14": 1100,
+      "Iphone15": 1200
+    };
+    print(phonesDetails);
     phoneChoosen = int.parse(stdin.readLineSync()!);
-    finalProductName = productName![phoneChoosen! - 1];
-    finalProductPrice = _price![phoneChoosen! - 1];
-    print("Your Choosen is $finalProductName with price $finalProductPrice");
+    finalProductDetails = phonesDetails[phoneChoosen - 1] as String?;
+    print("Your Choosen Phone is $finalProductDetails");
   }
 }

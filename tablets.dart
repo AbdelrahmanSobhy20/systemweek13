@@ -1,24 +1,18 @@
 import 'dart:io';
-
 import 'product.dart';
 
 class Tablets extends Product {
-  int? tabletChoosen;
-  @override
-  List<String>? get productName =>
-      ["iPad mini", "iPad Pro", "iPad Air", "iPad Air2"];
-
-  @override
-  List<int>? get _price => [500, 800, 1000, 1150];
-
-  String? tabletProduct() {
-    for (int i = 0; i > productName!.length; i++) {
-      print("Model $productName[i] >>> Price $_price[i]");
-    }
-    ;
+  String? TabletSelected() {
+    int? tabletChoosen;
+    Map<String, int> tabletsDetails = {
+      "iPad mini": 500,
+      "iPad Pro": 800,
+      "iPad Ait": 1000,
+      "iPad Air2": 1150
+    };
+    print(tabletsDetails);
     tabletChoosen = int.parse(stdin.readLineSync()!);
-    finalProductName = productName![tabletChoosen! - 1];
-    finalProductPrice = _price![tabletChoosen! - 1];
-    print("Your Choosen is $finalProductName with price $finalProductPrice");
+    finalProductDetails = tabletsDetails[tabletChoosen - 1] as String?;
+    print("Your Choosen Tablet is $finalProductDetails");
   }
 }
